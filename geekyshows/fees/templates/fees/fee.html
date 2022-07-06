@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='{%static "fees/css/style.css" %}'>
+    <title>Fee Details</title>
+</head>
+<body>
+    <marquee direction="rtl" style="color:azure;"><h3>{{dt|date:"DATETIME_FORMAT"}}</h3></marquee>
+
+    <h2 style="color:azure;">Hello! {{uname|upper}}</h2>
+
+    <table border="25px" style="color:azure; background-color:coral; padding: 10px;">
+        <tr>
+            <th style="padding: 10px;"><b>COURSES</b></th>
+            <th style="padding: 10px;"><b>FEE</b></th>
+        </tr>
+        <tr>
+            <td style="padding: 10px;"><b>Python</b></td>
+            <td style="padding: 10px;"><b>300</b></td>
+        </tr>
+        <tr>
+            <td style="padding: 10px;"><b>Django</b></td>
+            <td style="padding: 10px;"><b>500</b></td>
+        </tr>
+    </table>
+    <h3 style="color:azure;">{{seats}} Seats available only.</h3>
+
+    {% if uname == "Siddharth"%}
+        <h3 style="color:azure;"> You can avail 20% discount.</h3>
+    {%endif%}
+    <form action="">
+        <input type="button" value="ClickMe" onclick="disp()">
+    </form>
+    <script src="{%static 'fees/js/script.js'%}"></script>
+</body>
+</html>
