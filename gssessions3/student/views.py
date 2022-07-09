@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 
 # Create your views here.
 def setsession(request):
@@ -8,12 +8,15 @@ def setsession(request):
     return render(request, 'student/setsession.html')
 
 def getsession(request):
-    name = request.session['name']
-    # name = request.session.get('name')
-    cur_age = request.session.get_session_cookie_age()
-    exp_age = request.session.get_expiry_age()
-    exp_date = request.session.get_expiry_date()
-    return render(request, 'student/getsession.html', {'name':name, 'current_age':cur_age, 'expiry_age':exp_age, 'expiry_date':exp_date})
+    if 'name' in request.session:
+        name = request.session['name']
+        # name = request.session.get('name')
+        cur_age = request.session.get_session_cookie_age()
+        exp_age = request.session.get_expiry_age()
+        exp_date = request.session.get_expiry_date()
+        return render(request, 'student/getsession.html', {'name':name, 'current_age':cur_age, 'expiry_age':exp_age, 'expiry_date':exp_date})
+    else:
+        return HttpResponse('Your session has expired!')
 
 def delsession(request):
     request.session.flush()
