@@ -19,3 +19,5 @@ def delsession(request):
     request.session.flush()
     request.session.clear_expired() #clears expired sessions from database
     return render(request, 'student/delsession.html')
+
+#set_test_cookie(), check_test_cookie().....are used to check cookie support on the user end. 
