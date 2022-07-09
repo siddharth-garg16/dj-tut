@@ -11,6 +11,7 @@ def getsession(request):
     if 'name' in request.session:
         name = request.session['name']
         # name = request.session.get('name')
+        request.session.modified = True
         cur_age = request.session.get_session_cookie_age()
         exp_age = request.session.get_expiry_age()
         exp_date = request.session.get_expiry_date()
