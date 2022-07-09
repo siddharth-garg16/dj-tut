@@ -21,3 +21,5 @@ def delsession(request):
     return render(request, 'student/delsession.html')
 
 #set_test_cookie(), test_cookie_worked(), delete_test_cookie().....are used to check cookie support on the user end. 
+
+#handling session settings in setting file....do...........
